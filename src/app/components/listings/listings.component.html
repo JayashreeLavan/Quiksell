@@ -1,0 +1,16 @@
+
+
+<h2 class ="page-header"> Your Listings</h2><hr >
+<br >
+
+<div class="row">
+<!--<input type="text" name="uid" [(ngModel)]="uid">-->
+
+<div class="col-xs-6 col-lg-9">
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let listing of listings | filtermine:uid">
+    <a [routerLink]="['/listing/'+listing.$key]"><strong> {{listing.title}} :</strong>  ${{listing.price}}</a>
+  </li>
+</ul>
+      </div>
+</div>

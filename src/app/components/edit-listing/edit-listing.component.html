@@ -1,0 +1,67 @@
+<a [routerLink]="['/listings']"> << Go Back</a>
+<br>
+
+<h2 class ="page-header"> Edit your Ad</h2><hr >
+<br >
+
+<form (submit)="onEditSubmit()">
+
+    <div class="form-group">
+    <label>Title: </label>
+    <input class="form-control" type="text" name="title" [(ngModel)]="title" placeholder="what do you wanna sell?" required >
+    </div>
+    
+
+    <div class="form-group">
+    <label> Category: </label>
+    <select class="form-control" name="category" [(ngModel)]="category" required  >
+    <option value="Appliances">Appliances</option>
+    <option value="Auto Parts and accessories">Auto Parts and accessories</option>
+    <option value="Books and Media">Books and Media</option>
+    <option value="Cars and Motorcycles">Cars and Motorcycles</option>
+    <option value="Computers and Cell phones">Computers and Cell phones</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Furniture">Furniture</option>
+    <option value="General">General</option>
+    <option value="Home and Garden">Home and Garden</option>
+    <option value="Outdoors and sporting">Outdoors and sporting</option>
+    <option value="Pets and livestock">Pets and livestock</option>
+    <option value="Toys and Games">Toys and Games</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+    <label>Price: </label>
+    $<input class="form-control" type="number" name="price" [(ngModel)]="price" placeholder="Price in $" required >
+    <!--<input type="checkbox"  value=0  name="condition"> Free-->
+    </div>
+
+    <div class="form-group">
+    <label>Condition: </label>
+    <input type="Radio" name="condition" [(ngModel)]="condition" value="old" > Old 
+    <input type="Radio" name="condition" [(ngModel)]="condition" value="new"  checked> New
+    </div>
+
+    <div class="form-group">
+    <label>Location: </label>
+    <input class="form-control" type="text"  name="location" [(ngModel)]="location" placeholder="City"  required >
+    <!--<input class="form-control" type="text" name="city" placeholder="City">
+    <input class="form-control" type="text" name="state" placeholder="State">-->
+    </div>
+
+    <!--<div class="form-group">
+        <label> Image: </label>
+    <input  class="form-control" id="image" type="file" name="image" [(ngModel)]="image" required >
+    </div>-->
+    
+    <div class="form-group">
+    <label>Description: </label>
+    <textarea class="form-control" name="description" [(ngModel)]="description" placeholder="A brief description... " required>
+   
+    </textarea>
+    </div>
+
+    <input type="submit" value="submit" class="btn btn-success">
+
+</form>
+   

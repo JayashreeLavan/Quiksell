@@ -1,0 +1,43 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 style="text-align:center"> <i class="fa fa-ravelry" aria-hidden="true"></i> Quiksell! </h1>
+    <p style="text-align:center"> Just a few clicks away from buying or selling anything you need! </p>
+    <br><br>
+   <div style="padding-left:45%">
+     
+    <h5  *ngIf="!(user | async)">Sign in here: </h5>
+
+    <!--Sign up with google instead: <br>-->
+ 
+ <a (click)="googlelogin()" >
+    <img style="padding-left:5%" src="assets/img/google.png" *ngIf="!(user | async)">
+    </a>
+   </div>
+  </div>
+</div>
+
+
+
+<!--<div class="panel panel-default " *ngIf="!(user | async)">
+  <div class="panel-heading ">
+    <h3 class="panel-title">Sign In</h3>
+  </div>
+  <div class="panel-body ">
+      <form (submit)="emaillogin(email,password)" *ngIf="!(user | async)">
+    
+    Email: <input type="email" name="email">
+    Password: <input type="password" name="password">
+    <input type="submit" name="Sign In">
+</form>
+<br>
+Sign up with google instead: <br>
+ 
+ <a (click)="googlelogin()" >
+    <img src="assets/img/google.png" *ngIf="!(user | async)">
+    </a>
+  </div>
+</div>-->
+
+
+
+

@@ -1,0 +1,78 @@
+  
+  <h2 class ="page-header"> Top Listings</h2><hr >
+<br >
+  
+  <div class="row">
+  <div class="col-xs-3 col-lg-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <label class="list-group-item active"> Filter Options </label>
+        
+<br>
+     <form class=" list-group-control" role="search" id="search"  >
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="keyword" name="keyword"  placeholder="Search">
+        </div>
+        
+        
+    <h5 style="text-align:center"><small>-------(or)-------</small> </h5>
+     
+    <label> Category: </label>
+    <select class="form-control list-group-control" name="category" [(ngModel)]="category"  >
+    <option value=" "></option>
+    <option value="Appliances">Appliances</option>
+    <option value="Auto Parts and accessories">Auto Parts and accessories</option>
+    <option value="Books and Media">Books and Media</option>
+    <option value="Cars and Motorcycles">Cars and Motorcycles</option>
+    <option value="Computers and Cell phones">Computers and Cell phones</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Furniture">Furniture</option>
+    <option value="General">General</option>
+    <option value="Home and Garden">Home and Garden</option>
+    <option value="Outdoors and sporting">Outdoors and sporting</option>
+    <option value="Pets and livestock">Pets and livestock</option>
+    <option value="Toys and Games">Toys and Games</option>
+    </select>
+
+   <h5 style="text-align:center"><small>-------(or)-------</small> </h5>
+
+           <div class="list-group-control">
+    <label>Condition: </label><br>
+    <input type="Radio" name="condition" [(ngModel)]="condition" value="old" > Old 
+    <input type="Radio" name="condition" [(ngModel)]="condition" value="new" > New
+    </div>
+   
+    
+
+    <h5 style="text-align:center"><small>-------(or)-------</small> </h5>
+
+  <div class="list-group-control">
+      <input  type="checkbox"  name="free" [(ngModel)]="free"> Free Stuff!
+      <br>
+    
+    <!--<h5 style="text-align:center"><small>-------(or)-------</small> </h5>-->
+
+      <label>Price Range ($): </label><br>
+    <input class="form-control" style="width:60%" type="number" name="lowerLimit" value="" [(ngModel)]="lowerLimit" placeholder="Min"  > 
+    <input class="form-control" style="width:60% " type="number" name="upperLimit" value="" [(ngModel)]="upperLimit" placeholder="Max"  >
+   <br>
+</div>
+
+<input type='reset' value='Reset' name='reset'>    
+   
+    </form>
+
+
+         
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+
+
+<div class="col-xs-6 col-lg-9">
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let listing of listings | filter:keyword |filtercategory:category|filtercondition:condition|filterprice:lowerLimit:upperLimit:free">
+    
+    
+    <a [routerLink]="['/listing/'+listing.$key]"><strong> {{listing.title}} :</strong>  ${{listing.price}}</a>
+  </li>
+</ul>
+      </div><!--/row-->
